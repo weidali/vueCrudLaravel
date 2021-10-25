@@ -13,3 +13,7 @@
 `php artisan make:resource CompanyResource`
 `php artisan make:request CompanyRequest`
 `mac$ php artisan migrate`
+
+## Frontend
+
+`npm i vue@next vue-router@next vue-loader@next`
