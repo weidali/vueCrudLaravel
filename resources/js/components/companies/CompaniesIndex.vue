@@ -27,9 +27,14 @@ import { onMounted } from "vue";
 
 export default {
   setup() {
-    const { comanies, getCompanies } = useCompanies();
+    const { comanies, getCompanies, destroyCompany } = useCompanies();
 
     onMounted(getCompanies);
+
+    const deleteCompany = async (id) => {
+        await destroyCompany(id);
+        await getCompanies();
+    };
 
     return {
       comanies,
