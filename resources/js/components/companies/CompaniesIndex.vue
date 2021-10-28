@@ -6,6 +6,7 @@
         <th>Email</th>
         <th>Adress</th>
         <th>Websit</th>
+        <th>Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -15,6 +16,7 @@
                 <td>{{ item.email }}</td>
                 <td>{{ item.adress }}</td>
                 <td>{{ item.website }}</td>
+                <td><button @click="deleteCompany(item.id)">Delete</button></td>
             </tr>
         </template>
     </tbody>
@@ -32,12 +34,16 @@ export default {
     onMounted(getCompanies);
 
     const deleteCompany = async (id) => {
-        await destroyCompany(id);
-        await getCompanies();
+      if (!window.confirm('Are you sure?')) {
+        return;
+      }
+      await destroyCompany(id);
+      await getCompanies();
     };
 
     return {
       comanies,
+      destroyCompany,
     };
   },
 };
