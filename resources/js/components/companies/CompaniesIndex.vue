@@ -51,8 +51,8 @@
                   {{ item.website }}
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                  <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
-                  <button @click="deleteCompany(item.id)">Delete</button>
+                  <router-link :to="{ name: 'companies.edit', params: { id: item.id } }" class="mr-2 text-indigo-600 hover:text-indigo-900">Edit</router-link>
+                  <button class="text-indigo-600 hover:text-indigo-900" @click="deleteCompany(item.id)">Delete</button>
                 </td>
               </tr>
             </tbody>
