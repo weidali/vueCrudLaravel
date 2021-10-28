@@ -12,4 +12,8 @@ class Company extends Model
     protected $fillable = [
         'name', 'email', 'adress', 'website'
     ];
+
+    protected $hidden = [
+        'created_at', 'updated_at'
+    ];
 }

@@ -3,6 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Validator;
+
 
 class CompanyRequest extends FormRequest
 {
@@ -24,8 +26,8 @@ class CompanyRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['requered'],
-            'email' => ['requered', 'email'],
+            'name' => ['required'],
+            'email' => ['required', 'email'],
             'adress' => ['string'],
             'website' => ['url'],
         ];

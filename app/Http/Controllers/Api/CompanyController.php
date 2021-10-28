@@ -7,6 +7,7 @@ use App\Http\Requests\CompanyRequest;
 use App\Http\Resources\CompanyResource;
 use App\Models\Company;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Validator;
 
 class CompanyController extends Controller
 {
