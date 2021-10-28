@@ -13,8 +13,17 @@ export default function useCompanies() {
     }
 
     const storeCompany = async (data) => {
-        await axios.post('/api/companies', data);
-        await router.push({ name: 'companies.index' });
+        errors.value = '';
+        try {
+            await axios.post('/api/companies', data);
+            await router.push({ name: 'companies.index' });
+        } catch (error) {
+            if (error.response.status === 422) {
+                for (const key in error.response.data.errors) {
+                    errors.value += error.response.data.errors[key][0] + ' ';
+                }
+            }
+        }
     }
 
     const destroyCompany = async (id) => {

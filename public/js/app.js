@@ -22001,25 +22001,42 @@ function useCompanies() {
 
   var storeCompany = /*#__PURE__*/function () {
     var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2(data) {
+      var key;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
-              _context2.next = 2;
+              errors.value = '';
+              _context2.prev = 1;
+              _context2.next = 4;
               return axios__WEBPACK_IMPORTED_MODULE_1___default().post('/api/companies', data);
 
-            case 2:
-              _context2.next = 4;
+            case 4:
+              _context2.next = 6;
               return router.push({
                 name: 'companies.index'
               });
 
-            case 4:
+            case 6:
+              _context2.next = 11;
+              break;
+
+            case 8:
+              _context2.prev = 8;
+              _context2.t0 = _context2["catch"](1);
+
+              if (_context2.t0.response.status === 422) {
+                for (key in _context2.t0.response.data.errors) {
+                  errors.value += _context2.t0.response.data.errors[key][0] + ' ';
+                }
+              }
+
+            case 11:
             case "end":
               return _context2.stop();
           }
         }
-      }, _callee2);
+      }, _callee2, null, [[1, 8]]);
     }));
 
     return function storeCompany(_x) {
